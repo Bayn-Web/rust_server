@@ -1,43 +1,29 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+    <title>RUST PAGE</title>
     <style>
-        a {
-            font-size: 24px;
-            text-decoration: none;
-            outline: none;
-            line-height: normal;
-        }
-
-        #app {
+        body {
             width: 100%;
             height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
 
-        #username {
-            font-size: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
-
+        a,
         .custom-btn {
+            font-size: 24px;
+            outline: none;
+            padding: 30px;
+        }
+
+        .custom-btn,
+        .btn-6 {
             display: flex;
             justify-content: center;
-            text-align: center;
             align-items: center;
-            scale: 1.5;
-            width: 130px;
-            height: 40px;
+            text-align: center;
             color: #fff;
             border-radius: 5px;
             padding: 10px 25px;
@@ -47,53 +33,59 @@
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
-            display: inline-block;
             box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
                 7px 7px 20px 0px rgba(0, 0, 0, .1),
                 4px 4px 5px 0px rgba(0, 0, 0, .1);
-            outline: none;
         }
 
+        .username {
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
 
-        /* 6 */
         .btn-6 {
-            background: rgb(247, 150, 192);
             background: radial-gradient(circle, rgba(247, 150, 192, 1) 0%, rgba(118, 174, 241, 1) 100%);
             line-height: 42px;
             padding: 0;
             border: none;
         }
 
-        .btn-6 span {
+        .btn-6 a {
             position: relative;
             display: block;
             width: 100%;
             height: 100%;
         }
 
-        .btn-6:before,
-        .btn-6:after {
+        .btn-6::before,
+        .btn-6::after,
+        .btn-6 a::before,
+        .btn-6 a::after {
             position: absolute;
             content: "";
-            height: 0%;
-            width: 1px;
             box-shadow:
                 -1px -1px 20px 0px rgba(255, 255, 255, 1),
                 -4px -4px 5px 0px rgba(255, 255, 255, 1),
                 7px 7px 20px 0px rgba(0, 0, 0, .4),
                 4px 4px 5px 0px rgba(0, 0, 0, .3);
+            transition: all 500ms ease;
         }
 
-        .btn-6:before {
+        .btn-6::before {
             right: 0;
             top: 0;
-            transition: all 500ms ease;
+            width: 1px;
+            height: 0%;
         }
 
-        .btn-6:after {
+        .btn-6::after {
             left: 0;
             bottom: 0;
-            transition: all 500ms ease;
+            width: 1px;
+            height: 0%;
         }
 
         .btn-6:hover {
@@ -102,69 +94,36 @@
             box-shadow: none;
         }
 
-        .btn-6:hover:before {
-            transition: all 500ms ease;
+        .btn-6:hover::before,
+        .btn-6:hover::after {
             height: 100%;
         }
 
-        .btn-6:hover:after {
-            transition: all 500ms ease;
-            height: 100%;
-        }
-
-        .btn-6 span:before,
-        .btn-6 span:after {
-            position: absolute;
-            content: "";
-            box-shadow:
-                -1px -1px 20px 0px rgba(255, 255, 255, 1),
-                -4px -4px 5px 0px rgba(255, 255, 255, 1),
-                7px 7px 20px 0px rgba(0, 0, 0, .4),
-                4px 4px 5px 0px rgba(0, 0, 0, .3);
-        }
-
-        .btn-6 span:before {
+        .btn-6 a::before {
             left: 0;
             top: 0;
             width: 0%;
             height: .5px;
-            transition: all 500ms ease;
         }
 
-        .btn-6 span:after {
+        .btn-6 a::after {
             right: 0;
             bottom: 0;
             width: 0%;
             height: .5px;
-            transition: all 500ms ease;
         }
 
-        .btn-6 span:hover:before {
-            width: 100%;
-        }
-
-        .btn-6 span:hover:after {
+        .btn-6 a:hover::before,
+        .btn-6 a:hover::after {
             width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <div id="app">
-        <div id="username">{{username}}</div>
-        <button class="custom-btn btn-6"><span> <a :href="'https://'+uri">{{act}}</a></span></button>
-
-    </div>
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                uri: "%%uri%%",
-                act: "%%act%%",
-                username: "%%username%%"
-            }
-        })
-    </script>
+    <div class="username" style="text-decoration-line: underline;">%%user3name%%</div>
+    <div class="username" style="transform: translateY(1em);">%%username%%</div>
+    <button class="custom-btn btn-6"><a href="https://%%uri%%">%%act%%</a></button>
 </body>
 
 </html>
